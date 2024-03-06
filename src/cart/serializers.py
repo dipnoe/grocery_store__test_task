@@ -5,22 +5,23 @@ from grocery_store.models import Product
 
 
 class CartItemSerializer(serializers.ModelSerializer):
+    product_id = serializers.PrimaryKeyRelatedField(read_only=True)
     product = serializers.StringRelatedField()
     price = serializers.StringRelatedField(source='product.price')
 
     class Meta:
         model = CartItem
-        fields = ['product', 'price', 'quantity', ]
+        fields = ['product_id', 'product', 'price', 'quantity', ]
 
 
 class CartSerializer(serializers.ModelSerializer):
-    cart_item = CartItemSerializer(many=True, read_only=True)
+    cart_items = CartItemSerializer(many=True, read_only=True)
     items_count = serializers.SerializerMethodField()
     total_sum = serializers.SerializerMethodField()
 
     class Meta:
         model = Cart
-        fields = ['customer', 'cart_item', 'items_count', 'total_sum', ]
+        fields = ['customer', 'cart_items', 'items_count', 'total_sum', ]
 
     def get_items_count(self, instance):
         cart_items = CartItem.objects.filter(cart=instance)
