@@ -1,0 +1,55 @@
+[
+  {
+    "model": "grocery_store.category",
+    "pk": 1,
+    "fields": {
+      "name": "Категория 1",
+      "slug": "kategoriya-1",
+      "image": ""
+    }
+  },
+  {
+    "model": "grocery_store.subcategory",
+    "pk": 1,
+    "fields": {
+      "name": "Подкатегория 1.1",
+      "slug": "podkategoriya-11",
+      "image": "",
+      "category": 1
+    }
+  },
+  {
+    "model": "grocery_store.product",
+    "pk": 1,
+    "fields": {
+      "name": "Продукт 1.1.1",
+      "slug": "produkt-111",
+      "subcategory": 1,
+      "price": "100.00"
+    }
+  },
+  {
+    "model": "grocery_store.productimage",
+    "pk": 1,
+    "fields": {
+      "image": "product/Tvorog.jpg",
+      "product": 1
+    }
+  },
+  {
+    "model": "grocery_store.productimage",
+    "pk": 2,
+    "fields": {
+      "image": "product/Ryazhenka.jpeg",
+      "product": 1
+    }
+  },
+  {
+    "model": "grocery_store.productimage",
+    "pk": 3,
+    "fields": {
+      "image": "product/smyatana.jpg",
+      "product": 1
+    }
+  }
+]
