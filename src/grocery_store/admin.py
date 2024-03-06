@@ -1,9 +1,6 @@
 from django.contrib import admin
 
-from grocery_store.models import (Category,
-                                  Subcategory,
-                                  Product,
-                                  ProductImage)
+from grocery_store.models import Category, Subcategory, Product, ProductImage
 
 
 @admin.register(Category)

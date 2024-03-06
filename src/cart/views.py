@@ -1,14 +1,9 @@
 from django.http import JsonResponse
-from rest_framework.generics import (ListAPIView,
-                                     CreateAPIView,
-                                     UpdateAPIView,
-                                     DestroyAPIView)
+from rest_framework.generics import ListAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from cart.models import Cart, CartItem
-from cart.serializers import (CartSerializer,
-                              CartItemSerializer,
-                              AddAndChangeItemSerializer)
+from cart.serializers import CartSerializer, CartItemSerializer, AddAndChangeItemSerializer
 
 from users.permissions import IsCartItemOwner, IsCartOwner
 
