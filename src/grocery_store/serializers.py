@@ -1,8 +1,6 @@
 from rest_framework import serializers
 
-from grocery_store.models import (Category,
-                                  Subcategory,
-                                  Product)
+from grocery_store.models import Category, Subcategory, Product
 
 
 class SubcategorySerializer(serializers.ModelSerializer):

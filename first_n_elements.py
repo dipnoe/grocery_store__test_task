@@ -9,4 +9,3 @@ def output_n_elements(n: int) -> str:
 if __name__ == "__main__":
     n = int(input('Введите n: '))
     print(output_n_elements(n))
-

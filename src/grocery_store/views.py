@@ -1,9 +1,7 @@
 from rest_framework.generics import ListAPIView
 
 from grocery_store.models import Category, Subcategory, Product
-from grocery_store.serializers import (CategorySerializer,
-                                       SubcategorySerializer,
-                                       ProductSerializer)
+from grocery_store.serializers import CategorySerializer, SubcategorySerializer, ProductSerializer
 
 
 class CategoryListAPIView(ListAPIView):

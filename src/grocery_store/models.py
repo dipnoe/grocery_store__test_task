@@ -5,11 +5,9 @@ NULLABLE = {'blank': True, 'null': True}
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=255,
-                            verbose_name='Наименование', unique=True)
+    name = models.CharField(max_length=255, verbose_name='Наименование', unique=True)
     slug = models.SlugField(max_length=255, unique=True)
-    image = models.ImageField(upload_to='category/',
-                              verbose_name='Изображение', **NULLABLE)
+    image = models.ImageField(upload_to='category/', verbose_name='Изображение', **NULLABLE)
 
     def __str__(self):
         return self.name
@@ -26,14 +24,10 @@ class Category(models.Model):
 
 
 class Subcategory(models.Model):
-    name = models.CharField(max_length=255,
-                            verbose_name='Наименование', unique=True)
+    name = models.CharField(max_length=255, verbose_name='Наименование', unique=True)
     slug = models.SlugField(max_length=255, unique=True)
-    image = models.ImageField(upload_to='subcategory/',
-                              verbose_name='Изображение', **NULLABLE)
-    category = models.ForeignKey(Category,
-                                 on_delete=models.PROTECT,
-                                 verbose_name='Категория',
+    image = models.ImageField(upload_to='subcategory/', verbose_name='Изображение', **NULLABLE)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категория',
                                  related_name='subcategory')
 
     def __str__(self):
@@ -51,14 +45,10 @@ class Subcategory(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=255,
-                            verbose_name='Наименование', unique=True)
+    name = models.CharField(max_length=255, verbose_name='Наименование', unique=True)
     slug = models.SlugField(max_length=255, unique=True)
-    subcategory = models.ForeignKey(Subcategory,
-                                    on_delete=models.PROTECT,
-                                    verbose_name='Подкатегория')
-    price = models.DecimalField(max_digits=6,
-                                decimal_places=2, verbose_name='Цена')
+    subcategory = models.ForeignKey(Subcategory, on_delete=models.PROTECT, verbose_name='Подкатегория')
+    price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Цена')
 
     def __str__(self):
         return self.name
@@ -76,9 +66,7 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     image = models.ImageField(upload_to='product/')
-    product = models.ForeignKey(Product,
-                                on_delete=models.SET_NULL,
-                                related_name='image', **NULLABLE)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, related_name='image', **NULLABLE)
 
     def __str__(self):
         return self.image.name

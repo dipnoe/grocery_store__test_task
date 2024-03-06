@@ -5,9 +5,7 @@ from grocery_store.models import Product
 
 
 class Cart(models.Model):
-    customer = models.ForeignKey(User,
-                                 on_delete=models.CASCADE,
-                                 verbose_name='Покупатель')
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Покупатель')
 
     def __str__(self):
         return f'Корзина {self.customer.email}'
@@ -18,10 +16,8 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE,
-                             verbose_name='Корзина', related_name='cart_items')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE,
-                                verbose_name='Продукт')
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, verbose_name='Корзина', related_name='cart_items')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
     quantity = models.PositiveSmallIntegerField(verbose_name='Количество')
 
     def __str__(self):
