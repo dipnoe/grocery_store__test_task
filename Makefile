@@ -7,6 +7,6 @@ docker-exec:
 create-su:
 	@docker compose exec app ./src/manage.py create_su
 fixtures:
-	@docker compose exec app ./src/manage.py loaddata ./data/grocery_store.json
+	@docker compose exec app ./src/manage.py loaddata ./src/data/grocery_store.json
 lint:
 	@docker compose exec app pycodestyle ./src/ --exclude=./src/**/migrations/,./src/config/ --verbose
