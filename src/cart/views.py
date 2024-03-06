@@ -43,9 +43,7 @@ class CleanCartDestroyAPIView(DestroyAPIView):
 
     def delete(self, request, *args, **kwargs):
         customer = request.user
-        cart = Cart.objects.get(customer=customer)
-        cart_items = CartItem.objects.filter(cart=cart)
-        [i.delete() for i in cart_items]
+        CartItem.objects.filter(cart__customer=customer).delete()
         return JsonResponse({
             'success': True
         })
