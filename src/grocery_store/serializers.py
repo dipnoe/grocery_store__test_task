@@ -23,7 +23,8 @@ class ProductSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField(
         source='subcategory.category'
     )
-    images = serializers.StringRelatedField(source='image')
+    subcategory = serializers.StringRelatedField()
+    images = serializers.StringRelatedField(source='image', many=True)
 
     class Meta:
         model = Product

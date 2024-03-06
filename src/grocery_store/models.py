@@ -79,3 +79,6 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product,
                                 on_delete=models.SET_NULL,
                                 related_name='image', **NULLABLE)
+
+    def __str__(self):
+        return self.image.name
